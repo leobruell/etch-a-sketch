@@ -38,6 +38,7 @@ optionsDiv.appendChild(startColorLabel)
 
 let startColor = document.createElement('select')
 startColor.setAttribute('name','start-colors')
+startColor.setAttribute('id','starting')
 optionsDiv.appendChild(startColor)
 
 let colorArray = Array('blue', 'red', 'green', 'orange', 'purple', 'yellow')
@@ -95,8 +96,10 @@ let makeGrid = function(event){
         bigDiv.appendChild(littleDiv)   
     }
     let littleDivs = document.querySelectorAll('.baby-div')
+    currentColor = document.querySelector('#starting').value
+    console.log(currentColor)
     Array.from(littleDivs).forEach(littleDiv => {
-        littleDiv.setAttribute('style',`min-height: ${1/gridSize * 100}%;min-width: ${1/gridSize * 100}%; background-color: blue;`)
+        littleDiv.setAttribute('style',`min-height: ${1/gridSize * 100}%;min-width: ${1/gridSize * 100}%; background-color: ${currentColor};`)
         littleDiv.addEventListener("mouseover", addColor, true);
     });
 }
@@ -135,8 +138,9 @@ endColor.addEventListener('change', (event) =>{
             bigDiv.appendChild(littleDiv)   
         }
         let littleDivs = document.querySelectorAll('.baby-div')
+        currentColor = document.querySelector('#starting').value
         Array.from(littleDivs).forEach(littleDiv => {
-            littleDiv.setAttribute('style',`min-height: ${1/gridSize * 100}%;min-width: ${1/gridSize * 100}%; background-color: blue;`)
+            littleDiv.setAttribute('style',`min-height: ${1/gridSize * 100}%;min-width: ${1/gridSize * 100}%; background-color: ${currentColor};`)
             littleDiv.addEventListener("mouseover", addNewColor, true);
         });
     }
