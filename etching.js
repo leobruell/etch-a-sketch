@@ -80,7 +80,7 @@ for (let i = 0; i < 256; i++){
 let littleDivs = document.querySelectorAll('.baby-div')
 Array.from(littleDivs).forEach(littleDiv => {
     littleDiv.setAttribute('style',"min-height: 6.25%; min-width: 6.25%; background-color: blue;")
-    littleDiv.addEventListener("mouseover", addColor);
+    littleDiv.addEventListener("mouseover", addColor, true);
 });
 
 
