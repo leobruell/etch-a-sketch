@@ -2,7 +2,7 @@ let body = document.querySelector('body')
 body.setAttribute('style','background-color: black; height: 97vh; display: flex; justify-content: space-around;')
 
 let optionsDiv = document.createElement('div')
-optionsDiv.setAttribute('style','min-height: 100%; color: white;')
+optionsDiv.setAttribute('style','min-height: 100%; color: white; display: flex; flex-direction: column; align-items: center;')
 body.appendChild(optionsDiv)
 
 let mainHeader = document.createElement('h1')
@@ -11,7 +11,7 @@ mainHeader.setAttribute('style', 'font-size: 4vw;')
 optionsDiv.appendChild(mainHeader)
 
 let etchOptions = document.createElement('p')
-etchOptions.setAttribute('style', 'font-size: 2vw')
+etchOptions.setAttribute('style', 'font-size: 2vw;')
 etchOptions.textContent = 'Options:'
 optionsDiv.appendChild(etchOptions)
 
@@ -31,15 +31,22 @@ resolution.setAttribute('style', 'width: 15%; font-size: 1.5vw')
 resolution.defaultValue = 16;
 resolutionDiv.appendChild(resolution)
 
+let startDiv = document.createElement('div')
+startDiv.setAttribute('style', 'display: flex; justify-content: space-around; align-items: center; font-size: 1.5vw; width: 80%;')
+optionsDiv.appendChild(startDiv)
+
+let startP = document.createElement('p')
+startP.textContent = 'Start Color: '
+startDiv.appendChild(startP)
+
 let startColorLabel = document.createElement('label')
 startColorLabel.setAttribute('for', 'start-colors')
-startColorLabel.textContent = 'Start Color:     '
-optionsDiv.appendChild(startColorLabel)
+startDiv.appendChild(startColorLabel)
 
 let startColor = document.createElement('select')
 startColor.setAttribute('name','start-colors')
 startColor.setAttribute('id','starting')
-optionsDiv.appendChild(startColor)
+startDiv.appendChild(startColor)
 
 let colorArray = Array('blue', 'red', 'green', 'orange', 'purple', 'yellow')
 colorArray.forEach(color => {
@@ -48,14 +55,21 @@ colorArray.forEach(color => {
     startColor.appendChild(colorOption)
 })
 
+let endDiv = document.createElement('div')
+endDiv.setAttribute('style', 'display: flex; justify-content: space-around; align-items: center; font-size: 1.5vw; width: 80%;')
+optionsDiv.appendChild(endDiv)
+
+let endP = document.createElement('p')
+endP.textContent = 'End Color: '
+endDiv.appendChild(endP)
+
 let endColorLabel = document.createElement('label')
 endColorLabel.setAttribute('for', 'end-colors')
-endColorLabel.textContent = 'End Color:     '
-optionsDiv.appendChild(endColorLabel)
+endDiv.appendChild(endColorLabel)
 
 let endColor = document.createElement('select')
 endColor.setAttribute('name','end-colors')
-optionsDiv.appendChild(endColor)
+endDiv.appendChild(endColor)
 
 let endColorArray = Array('green','blue', 'red', 'orange', 'purple', 'yellow')
 endColorArray.forEach(color => {
